@@ -45,14 +45,3 @@ function createClientSideProduct() {
   console.log("test product dispaly"+ this.product);
 
 }
-
-//creates new cart identifier when client connects to the website.
-function generateUniqueCartID() {
-    function s4() {
-      return Math.floor((1 + Math.random()) * 0x10000)
-        .toString(16)
-        .substring(1);
-    }
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-      s4() + '-' + s4() + s4() + s4();
-}

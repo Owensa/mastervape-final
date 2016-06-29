@@ -19,6 +19,9 @@
 
      <script type="text/javascript" src="js/cart.js"></script>
      <script type="text/javascript" src="js/customer.js"></script>
+     <script type="text/javascript" src="js/age-verification.js"></script>
+     <script src="https://js.moltin.com/v1"></script>
+
 
 
     <!-- Custom CSS -->
@@ -46,7 +49,25 @@
 </head>
 
 <body id="page-top" class="index">
-    <script>createCustomer();</script>
+  <script>jQuery.noConflict();</script>
+    <script type="text/javascript">
+        (function() {
+         // Authenticate
+         var moltin = new Moltin({publicId: 'B9zkGefy2G02dkN0GNj3EemZNoVMJR3dDebwOtbGZr'});
+         moltin.Authenticate();
+         // Listen for authentication
+         window.addEventListener('MoltinReady', function(response) {
+
+          //check if vistor has cookie and if not create one and then create a customer object.
+          if (typeof $.cookie('token') === 'undefined'){
+              //the cookie doesnt exist so we create one. as long as user doesnt close browser things shall be persisted.
+              $.cookie('token', 1, { expires: 7, path:'/' });
+              console.log($.cookie('token'));
+           }
+         });
+        })();
+   </script>
+
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -160,13 +181,35 @@ Our customers are anyone who needs help in this industry. From vape professional
 
             <div class="col-lg-3 col-md-4 col-xs-12 text-center ">
                   <div data-moltin-product="1280651704999609161" id="1" onload="createClientSideProduct()" ></div>
-                  <button type="button" class="btn btn-danger btn-s" onclick="addItemToCart()" ><a href="#">Add to Cart</a></button>
+                  <button type="button" class="btn btn-danger btn-s"><a href="#">Add to Cart</a></button>
+                  <script>
 
+                  </script>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-12 text-center ">
-                  <div data-moltin-product="1280650327514678088" id="2" onload="createClientSideProduct()"></div>
-                  <button type="button" class="btn btn-danger btn-s" onclick="addItemToCart()" ><a href="#">Add to Cart</a></button>
+                  <div data-moltin-product="1280650327514678088" id="2"></div>
+                  <button type="button" class="btn btn-danger btn-s">Add to Cart</button>
+                  <script>
+                  var moltin = new Moltin({publicId: 'B9zkGefy2G02dkN0GNj3EemZNoVMJR3dDebwOtbGZr'});
+                  moltin.Authenticate();
 
+                  jQuery(document).ready(function($){
+                    $("button").click(function() {
+                        moltin.Customer.Create({
+                                    title:       'Example Customer',
+                                    slug:        'example-customer',
+                                    status:      1
+                                  }, function(customer) {
+                                    console.log(customer);
+                                  }, function(error) {
+                                    // Something went wrong...
+                                    console.log(error)
+                                  });
+
+                        moltin.Cart.Insert('Castaway', null, null, function(response) { console.log(response); })
+                     });
+                  });
+                  </script>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-12 text-center ">
 
@@ -326,7 +369,7 @@ Our customers are anyone who needs help in this industry. From vape professional
     <script src="js/cbpAnimatedHeader.js"></script>
 
     <!-- Moltin Product Plugins -->
-    <script src="https://js.moltin.com/v1/widgets" data-moltin-key="B9zkGefy2G02dkN0GNj3EemZNoVMJR3dDebwOtbGZr"></script>
+  <!--  <script src="https://js.moltin.com/v1/widgets" data-moltin-key="B9zkGefy2G02dkN0GNj3EemZNoVMJR3dDebwOtbGZr"></script> -->
 
     <!-- Contact Form JavaScript -->
     <script src="js/jqBootstrapValidation.js"></script>
@@ -336,7 +379,6 @@ Our customers are anyone who needs help in this industry. From vape professional
     <script src="js/agency.js"></script>
 
     <script src="http://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
-    <script src="js/age-verification.js"></script>
     <!-- jQuery -->
 
 </body>
