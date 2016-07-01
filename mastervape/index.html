@@ -552,36 +552,18 @@
         </script>
         <script type="text/javascript">
         (function() {
-          //entry point.
+          /* application entry point!                */
+          /* generate the store and shit.            */
+          /* event calls ordered by behavioral context */
+          /*    1.                                   */
+          /*    2.                                   */
+          /*    3.                                   */
+          /*    4.                                   */
+          /*                                         */
+          console.info('Initiating app setup and server authentification /"gimmicks/"');
                   var moltin = new Moltin({publicId: 'B9zkGefy2G02dkN0GNj3EemZNoVMJR3dDebwOtbGZr'});
-                  moltin.Authenticate(function() {
-                    // Get cloudchaser  products
-                    moltin.Product.Search({category: 'featured', limit: 7}, function(response) {
-                        // Loop them
-                        for ( var k in response ) {
-                          // Assign product object
-                          response.reverse();
-                          product = response[k];
-
-                          // Assign item element
-                          $('#node .item').first().clone().appendTo('#node');
-                          var item = $('#node .item').last();
-                           //string together the product elements
-                          item.find('.list-group-image').attr('src', first(product.images).url.http).attr('alt', product.title);
-                          item.find('.list-group-item-heading').html(product.title);
-                          item.find('.list-group-item-text').html(product.description);
-                          item.find('.lead').html(product.price.value);
-                          item.find('.btn-success').on('click', function(e) {
-                            // get variation node and insert into cart
-                             moltin.Cart.Insert(product.id, 1, get_product_variation(response, product), function(response) {
-                              //insert the product instance into the cart on click.
-                              console.log(response.title+'and with status'+response.status);
-                               alert(product.title+' added to cart!'+'response:'+response);
-                             }, function(error) {
-                               console.log(product+'failed to add to cart. try again. '+response.title);
-                             });
-                        });
-                        }
+                  moltin.Authenticate(function(response) {
+                         moltin_store_scaffold(response);
                         // Cleanup
                         $('#node .item').first().remove();
                     });
@@ -622,24 +604,40 @@
                               if(error) {
                               console.log("WARNING! Checkout is not setup or something went wrong. Please refresh the page, if you continue to have issues with checking out please contact us at mastervapeusa@gmail.com"+error);
                               }
-
                           });
+                          function moltin_store_scaffold(response) {
+                            moltin.Product.Search({category: 'featured', limit: 7}, function(response) {
+                                // Loop them
+                                for ( var k in response ) {
+                                  // Assign product object
+                                  response.reverse();
+                                  product = response[k];
+
+                                  // Assign item element
+                                  $('#node .item').first().clone().appendTo('#node');
+                                  var item = $('#node .item').last();
+                                   //string together the product elements
+                                  item.find('.list-group-image').attr('src', first(product.images).url.http).attr('alt', product.title);
+                                  item.find('.list-group-item-heading').html(product.title);
+                                  item.find('.list-group-item-text').html(product.description);
+                                  item.find('.lead').html(product.price.value);
+                                  item.find('.btn-success').on('click', function(e) {
+                                    // get variation node and insert into cart
+                                     moltin.Cart.Insert(product.id, 1, get_product_variation(response, product), function(response) {
+                                      //insert the product instance into the cart on click.
+                                      console.log(response.title+'and with status'+response.status);
+                                       alert(product.title+' added to cart!'+'response:'+response);
+                                     }, function(error) {
+                                       console.log(product+'failed to add to cart. try again. '+response.title);
+                                     });
+                                });
+                          }
+
                           function get_product_variation(response, status = false, product = null) {
                             //  if it's not a variation why are we here
                               if(response.status === false) {
                                 console.log(response.status+': is what bitch ass returned.');
                               }
-
-                              // if(pvars.length === 0) {
-                              //   return alert('no product variations were found. children have been NOT found!');
-                              // }
-                              // for (var k in pvars)
-                              // {
-                              //     console.log(pvars);
-                              // }
-
-                              //console.log(product+','+response+','+pvars);
-                              //checking local vars to sew up annoying ass pvars.
                               if(product === null){
                                  notice('something went really wrong. refresh the page.');
 
