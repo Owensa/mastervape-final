@@ -1,386 +1,670 @@
-<!DOCTYPE html>
+<!DOCTYPE html5>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="" name="description">
+        <meta content="" name="author">
+        <title>
+            MasterVapeUsa
+        </title><!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <script src=
+        "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+        </script>
+        <script src=
+        "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
+        </script>
+        <script src="js/cart.js" type="text/javascript">
+        </script>
+        <script src="js/customer.js" type="text/javascript">
+        </script>
+        <!-- <script src="js/age-verification.js" type="text/javascript">
+        </script> -->
+        <script src="https://js.moltin.com/v1">
+        </script>
+        <script src=
+        "http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js">
+        </script>
+        <script src=
+        "http://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js">
+        </script>
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>MasterVapeUsa</title>
-
-
-    <!-- Bootstrap Core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-     <script type="text/javascript" src="js/cart.js"></script>
-     <script type="text/javascript" src="js/customer.js"></script>
-     <script type="text/javascript" src="js/age-verification.js"></script>
-     <script src="https://js.moltin.com/v1"></script>
-
-
-
-    <!-- Custom CSS -->
-    <link href="css/agency.css" rel="stylesheet">
-
-
-    <link href="css/age-verification.css" rel="stylesheet">
-    <style media="screen" type="text/css">/*<![CDATA[*/@import 'fonts/lanecane/stylesheet.css';/*]]>*/</style>
-    <style media="screen" type="text/css">/*<![CDATA[*/@import 'fonts/narrow/stylesheet.css';/*]]>*/</style>
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body id="page-top" class="index">
-  <script>jQuery.noConflict();</script>
-    <script type="text/javascript">
-        (function() {
-         // Authenticate
-         var moltin = new Moltin({publicId: 'B9zkGefy2G02dkN0GNj3EemZNoVMJR3dDebwOtbGZr'});
-         moltin.Authenticate();
-         // Listen for authentication
-         window.addEventListener('MoltinReady', function(response) {
-
-          //check if vistor has cookie and if not create one and then create a customer object.
-          if (typeof $.cookie('token') === 'undefined'){
-              //the cookie doesnt exist so we create one. as long as user doesnt close browser things shall be persisted.
-              $.cookie('token', 1, { expires: 7, path:'/' });
-              console.log($.cookie('token'));
-           }
-         });
-        })();
-   </script>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">MasterVapeUSA.com</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#cloudchaser">CloudChaser</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#signature">Signature Series</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="cart\cart.html">View Cart<i class="fa fa-shopping-cart "></i></a>
-                    </li>
-
-
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-    <!-- Header -->
-    <header id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for Slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('img/logo3.png');"></div>
-                <div class="carousel-caption">
-
-                </div>
-            </div>
-            <div class="item">
-                <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('img/logo4.png');"></div>
-                <div class="carousel-caption">
-
-                </div>
-            </div>
-            <div class="item">
-                <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('img/SmokeShot2.png');"></div>
-                <div class="carousel-caption">
-
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-
-    </header>
-
-    <section id="about" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Welcome to Master Vape,</h2>
-                <p class="text-muted"> your one stop shop for all your vaping needs. From Premium E-Liquid down to the atomizers that vaporize them, we strive to bring you the absolute finest products at the lowest possible prices. Since the beginning, we have believed that the consumer deserves more than what other companies are offering. Here at Master Vape, we promise you will receive exceptional customer service and so much more.<br><br><br>
-
-E-Liquid is our passion, and it helped us form Master Vape into what it is today. Cloud Chaser was born late in 2013 by two people with a passion for E-Liquid. Using only the finest American ingredients, the company instantly became a major player. After the immediate success of Cloud Chaser, we decided it was time to expand. Bringing in mods and tanks was obvious, but we really wanted to take it a step further. Now we can offer original equipment manufacturing to our beloved clients. <br><br><br>
-
-Our customers are anyone who needs help in this industry. From vape professionals to the beginner, we want to be right by your side through everything. Not only do we stand by the products we sell, we use them everyday. All employees are trained to troubleshoot devices and help pick the perfect e-liquid for every individual. No one will beat our customer service, and that is a guarantee. With any questions, comments, or concerns please contact us at <a href="mailto:MasterVapeUSA.com">MasterVapeUSA.com</a>
-
-              </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="cloudchaser">
-
-
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col-lg-12 text-center">
-                <h2 class="page-header">Cloudchaser Blends</h2>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-xs-12 text-center ">
-                  <div data-moltin-product="1280651704999609161" id="1" onload="createClientSideProduct()" ></div>
-                  <button type="button" class="btn btn-danger btn-s"><a href="#">Add to Cart</a></button>
-                  <script>
-
-                  </script>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-12 text-center ">
-                  <div data-moltin-product="1280650327514678088" id="2"></div>
-                  <button type="button" class="btn btn-danger btn-s">Add to Cart</button>
-                  <script>
-                  var moltin = new Moltin({publicId: 'B9zkGefy2G02dkN0GNj3EemZNoVMJR3dDebwOtbGZr'});
-                  moltin.Authenticate();
-
-                  jQuery(document).ready(function($){
-                    $("button").click(function() {
-                        moltin.Customer.Create({
-                                    title:       'Example Customer',
-                                    slug:        'example-customer',
-                                    status:      1
-                                  }, function(customer) {
-                                    console.log(customer);
-                                  }, function(error) {
-                                    // Something went wrong...
-                                    console.log(error)
-                                  });
-
-                        moltin.Cart.Insert('Castaway', null, null, function(response) { console.log(response); })
-                     });
-                  });
-                  </script>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-12 text-center ">
-
-                  <div data-moltin-product="1238649910845243962" id="3" onload="createClientSideProduct()"></div>
-                  <button type="button" class="btn btn-danger btn-s" onclick="addItemToCart()" ><a href="#">Add to Cart</a></button>
-
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-12 text-center ">
-                  <div data-moltin-product="1238649443146793529" id="4" onload="createClientSideProduct()"></div>
-                  <button type="button" class="btn btn-danger btn-s" onclick="addItemToCart()" ><a href="#">Add to Cart</a></button>
-
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-12 text-center  ">
-                  <div data-moltin-product="1238648860331475512" id="5" onload="createClientSideProduct()"></div>
-                  <button type="button" class="btn btn-danger btn-s" onclick="addItemToCart()" ><a href="#">Add to Cart</a></button>
-
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-xs-12 text-center ">
-
-                  <div data-moltin-product="1238648401483006519" id="6" onload="createClientSideProduct()"></div>
-                  <button type="button" class="btn btn-danger btn-s" onclick="addItemToCart()" ><a href="#">Add to Cart</a></button>
-
-
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-12 text-center ">
-                  <div data-moltin-product="1238647927618929206" id="7" onload="createClientSideProduct()"></div>
-                  <button type="button" class="btn btn-danger btn-s" onclick="addItemToCart()" ><a href="#">Add to Cart</a></button>
-
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-xs-12  text-center " >
-                  <div data-moltin-product="1238646439001719349" id="8" onload="createClientSideProduct()"></div>
-                  <button type="button" class="btn btn-danger btn-s" onclick="addItemToCart()" ><a href="#">Add to Cart</a></button>
-
-            </div>
-
-        </div>
-            </section>
-
-            <section id="signature">
-
-
+        <!-- Custom CSS -->
+        <link href="css/agency.css" rel="stylesheet">
+        <link href="css/age-verification.css" rel="stylesheet">
+        <style media="screen" type="text/css">
+        /*<![CDATA[*/@import 'fonts/lanecane/stylesheet.css';/*]]>*/
+        </style>
+        <style media="screen" type="text/css">
+        /*<![CDATA[*/@import 'fonts/narrow/stylesheet.css';/*]]>*/
+        </style><!-- Custom Fonts -->
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
+        type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+        rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Kaushan+Script'
+        rel='stylesheet' type='text/css'>
+        <link href=
+        'https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic'
+        rel='stylesheet' type='text/css'>
+        <link href=
+        'https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700'
+        rel='stylesheet' type='text/css'>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+    </head>
+    <body class="index" id="page-top">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
-
-                <div class="row">
-
-                    <div class="col-lg-12 text-center">
-                        <h2 class="page-header">Signature Series</h2>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-xs-12 text-center  ">
-
-                          <div data-moltin-product="1281303877538284463" id="9" onload="createClientSideProduct()">  </div>
-                            <button type="button" class="btn btn-danger btn-s" onclick="addItemToCart()" ><a href="#">Add to Cart</a></button>
-
-
-
-
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-xs-12 text-center ">
-
-                          <div data-moltin-product="1281300956146828206" id="10" onload="createClientSideProduct()"></div>
-                          <button type="button" class="btn btn-danger btn-s" onclick="addItemToCart()" ><a href="#">Add to Cart</a></button>
-
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-xs-12 text-center ">
-
-                          <div data-moltin-product="1281299837962159021" id="11" onload="createClientSideProduct()"></div>
-                          <button type="button" class="btn btn-danger btn-s" onclick="addItemToCart()" ><a href="#">Add to Cart</a></button>
-
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-xs-12 text-center  ">
-
-                          <div data-moltin-product="1281298286648492972" id="12" onload="createClientSideProduct()"></div>
-                          <button type="button" class="btn btn-danger btn-s" onclick="addItemToCart()" ><a href="#">Add to Cart</a></button>
-
-                    </div>
-
-
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button class="navbar-toggle" data-target=
+                    "#bs-example-navbar-collapse-1" data-toggle="collapse"
+                    type="button"><span class="sr-only">Toggle
+                    navigation</span> <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> <span class=
+                    "icon-bar"></span></button> <a class=
+                    "navbar-brand page-scroll" href=
+                    "#page-top">MasterVapeUSA.com</a>
                 </div>
-                    </section>
+                <!-- Collect the nav links, forms, and other content for toggling -->
 
+                <div class="collapse navbar-collapse" id=
+                "bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
 
+                        <li>
+                            <a class="page-scroll" href=
+                            "#cloudchaser">CloudChaser</a>
+                        </li>
 
+                        <li>
+                            <a class="page-scroll" href="#signature">Signature
+                            Series</a>
+                        </li>
 
+                        <li>
+                            <a class="page-scroll" href="#contact">Contact</a>
+                        </li>
 
+                        <li>
+                            <a class="page-scroll" href="cart/cart.html">View
+                            Cart<i class="fa fa-shopping-cart"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <!-- Header -->
 
+        <header class="carousel slide" id="myCarousel">
+            <!-- Indicators -->
 
-                    <section id="contact" class="container content-section text-center">
+            <ol class="carousel-indicators">
+                <li class="active" data-slide-to="0" data-target="#myCarousel">
+                </li>
 
-                      <div class="row">
-                        <div class="col-lg-12 text center">
-                              <h1>Contact</h1>
-                            </div>
-                              </div>
-                                <div class="row">
-                                  <div class="col-lg-12 text center">
-                                        <h3 class="text-muted">Social Media</h3>
+                <li data-slide-to="1" data-target="#myCarousel">
+                </li>
 
+                <li data-slide-to="2" data-target="#myCarousel">
+                </li>
+            </ol>
+            <!-- Wrapper for Slides -->
 
-                                <ul class="list-inline social-buttons" id="sm">
-                                    <li><a href="https://www.facebook.com/mastervapeusa/?fref=ts"><i class="fa fa-facebook fa-4x"></i></a>
-                                    </li>
-                                    <li><a href="https://twitter.com/mastervapeusa"><i class="fa fa-twitter fa-4x"></i></a>
-                                    </li>
-                                    <li><a href="https://www.instagram.com/mastervapeusa/"><i class="fa fa-instagram fa-4x"></i></a>
-                                    </li>
-                                    <li><a href="https://open.spotify.com/artist/3ieXyLU9kMa3vehMYqQEWl"><i class="fa fa-google-plus fa-4x"></i></a>
-                                    </li>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <!-- Set the first background image using inline CSS below. -->
 
-                                </ul>
+                    <div class="fill" style=
+                    "background-image:url('img/logo3.png');">
+                    </div>
+
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+
+                <div class="item">
+                    <!-- Set the second background image using inline CSS below. -->
+
+                    <div class="fill" style=
+                    "background-image:url('img/logo4.png');">
+                    </div>
+
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+
+                <div class="item">
+                    <!-- Set the third background image using inline CSS below. -->
+
+                    <div class="fill" style=
+                    "background-image:url('img/SmokeShot2.png');">
+                    </div>
+
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+            </div>
+            <!-- Controls -->
+            <a class="left carousel-control" data-slide="prev" href=
+            "#myCarousel"><span class="icon-prev"></span></a> <a class=
+            "right carousel-control" data-slide="next" href=
+            "#myCarousel"><span class="icon-next"></span></a>
+        </header>
+
+        <section class="container content-section text-center" id="about">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>
+                        Welcome to Master Vape,
+                    </h2>
+
+                    <p class="text-muted">
+                        your one stop shop for all your vaping needs. From
+                        Premium E-Liquid down to the atomizers that vaporize
+                        them, we strive to bring you the absolute finest
+                        products at the lowest possible prices. Since the
+                        beginning, we have believed that the consumer deserves
+                        more than what other companies are offering. Here at
+                        Master Vape, we promise you will receive exceptional
+                        customer service and so much more.<br>
+                        <br>
+                        <br>
+                        E-Liquid is our passion, and it helped us form Master
+                        Vape into what it is today. Cloud Chaser was born late
+                        in 2013 by two people with a passion for E-Liquid.
+                        Using only the finest American ingredients, the company
+                        instantly became a major player. After the immediate
+                        success of Cloud Chaser, we decided it was time to
+                        expand. Bringing in mods and tanks was obvious, but we
+                        really wanted to take it a step further. Now we can
+                        offer original equipment manufacturing to our beloved
+                        clients.<br>
+                        <br>
+                        <br>
+                        Our customers are anyone who needs help in this
+                        industry. From vape professionals to the beginner, we
+                        want to be right by your side through everything. Not
+                        only do we stand by the products we sell, we use them
+                        everyday. All employees are trained to troubleshoot
+                        devices and help pick the perfect e-liquid for every
+                        individual. No one will beat our customer service, and
+                        that is a guarantee. With any questions, comments, or
+                        concerns please contact us at <a href=
+                        "mailto:MasterVapeUSA.com">MasterVapeUSA.com</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="mastervape">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="page-header">
+                            Cloudchaser Blends
+                        </h2>
+                    </div>
+
+                    <div class="row" id="node">
+                        <div class="item col-xs-3 col-lg-3">
+                            <div class="thumbnail">
+                                <img alt="" class="group list-group-image" src=
+                                "">
+                                <div class="caption">
+                                    <h4 class=
+                                    "group inner list-group-item-heading">
+                                    </h4>
+
+                                    <p class=
+                                    "group inner list-group-item-text">
+                                    </p>
+
+                                    <div class="row" style="padding: 0">
+                                        <div class="col-xs-12 col-md-6">
+                                            <span class="lead"></span>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-6">
+                                            <a class=
+                                            "btn btn-success center-block">Add to cart</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="row">
-                          <div class="col-lg-12 text center">
-                              <h3 class="text-muted">Customer Service</h3>
-                              <ul class="list-inline social-buttons">
-                                  <li><a href="mailto:MaserVapeUSA@Gmail.com"><i class="fa fa-envelope fa-4x"></i></a>
-                                  </li>
+                    </div>
 
-                              </ul>
-                              <div class="mailto:MaserVapeUSA@Gmail.com">
-                                <h5><a href="#">MaserVapeUSA@Gmail.com</a></h5>
-                              </div>
-                          </div>
-                    </section>
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <span class="copyright">Copyright &copy; MasterVapeUSA2016</span>
+                    <div class="item col-xs-3 col-lg-3">
+                        <div class="thumbnail">
+                            <img alt="" class="group list-group-image img-responsive" src="">
+                            <div class="caption">
+                                <h4 class=
+                                "group inner list-group-item-heading">
+                                </h4>
+
+                                <p class="group inner list-group-item-text">
+                                </p>
+
+                                <div class="row" style="padding: 0">
+                                    <div class="col-xs-12 col-md-6">
+                                        <span class="lead"></span>
+                                    </div>
+
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success pull-right"
+                                        href="#">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item col-xs-3 col-lg-3">
+                        <div class="thumbnail">
+                            <img alt="" class="group list-group-image" src="">
+                            <div class="caption">
+                                <h4 class=
+                                "group inner list-group-item-heading">
+                                </h4>
+                                <p class="group inner list-group-item-text">
+                                </p>
+                                <div class="row" style="padding: 0">
+                                    <div class="col-xs-12 col-md-6">
+                                        <span class="lead"></span>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success pull-right">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item col-xs-3 col-lg-3">
+                        <div class="thumbnail">
+                            <img alt="" class="group list-group-image" src="">
+                            <div class="caption">
+                                <h4 class=
+                                "group inner list-group-item-heading">
+                                </h4>
+
+                                <p class="group inner list-group-item-text">
+                                </p>
+
+                                <div class="row" style="padding: 0">
+                                    <div class="col-xs-12 col-md-6">
+                                        <span class="lead"></span>
+                                    </div>
+
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success pull-right"
+                                        href="#">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item col-lg-3 col-md-4 col-xs-12 text-center">
+                        <img alt="" class="img-responsive" src=
+                        "http://placehold.it/400x300"> <button class=
+                        "btn btn-danger btn-s" type="button"><a href="#">Add to
+                        Cart</a></button>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-xs-12 text-center">
+                        <div data-moltin-product="1280650327514678088" id="2">
+                        </div>
+                        <img alt="" class="img-responsive" src=
+                        "http://placehold.it/400x300"> <button class=
+                        "btn btn-danger btn-s" type="button">Add to
+                        Cart</button>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-xs-12 text-center">
+                        <div data-moltin-product="1238649910845243962" id="3"
+                        onload="createClientSideProduct()">
+                        </div>
+                        <img alt="" class="img-responsive" src=
+                        "http://placehold.it/400x300"> <button class=
+                        "btn btn-danger btn-s" onclick="addItemToCart()" type=
+                        "button"><a href="#">Add to Cart</a></button>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-xs-12 text-center">
+                        <div data-moltin-product="1238649443146793529" id="4">
+
+                        </div>
+                        <img alt="" class="img-responsive" src=
+                        "http://placehold.it/400x300"> <button class=
+                        "btn btn-danger btn-s" onclick="addItemToCart()" type=
+                        "button"><a href="#">Add to Cart</a></button>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-xs-12 text-center">
+                        <div data-moltin-product="1238648860331475512" id="5">
+
+                        </div>
+                        <img alt="" class="img-responsive" src=
+                        "http://placehold.it/400x300"> <button class=
+                        "btn btn-danger btn-s" onclick="addItemToCart()" type=
+                        "button"><a href="#">Add to Cart</a></button>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-xs-12 text-center">
+                        <div data-moltin-product="1238648401483006519" id="6"
+                        onload="createClientSideProduct()">
+                        </div>
+                        <img alt="" class="img-responsive" src=
+                        "http://placehold.it/400x300"> <button class=
+                        "btn btn-danger btn-s" onclick="addItemToCart()" type=
+                        "button"><a href="#">Add to Cart</a></button>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-xs-12 text-center">
+                        <div data-moltin-product="1238647927618929206" id="7"
+                        onload="createClientSideProduct()">
+                        </div>
+                        <img alt="" class="img-responsive" src=
+                        "http://placehold.it/400x300"> <button class=
+                        "btn btn-danger btn-s" onclick="addItemToCart()" type=
+                        "button"><a href="#">Add to Cart</a></button>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-xs-12 text-center">
+                        <div data-moltin-product="1238646439001719349" id="8"
+                        onload="createClientSideProduct()">
+                        </div>
+                        <img alt="" class="img-responsive" src=
+                        "http://placehold.it/400x300"> <button class=
+                        "btn btn-danger btn-s" onclick="addItemToCart()" type=
+                        "button"><a href="#">Add to Cart</a></button>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="col-md-6">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
+        <section id="signature">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="page-header">
+                            Signature Series
+                        </h2>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-xs-12 text-center">
+                        <div data-moltin-product="1281303877538284463" id="9">
+                        </div>
+                        <img alt="" class="img-responsive" src=
+                        "http://placehold.it/400x300"> <button class=
+                        "btn btn-danger btn-s" onclick="addItemToCart()" type=
+                        "button"><a href="#">Add to Cart</a></button>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-xs-12 text-center">
+                        <div data-moltin-product="1281300956146828206" id="10"
+                        onload="createClientSideProduct()">
+                        </div>
+                        <img alt="" class="img-responsive" src=
+                        "http://placehold.it/400x300"> <button class=
+                        "btn btn-danger btn-s" onclick="addItemToCart()" type=
+                        "button"><a href="#">Add to Cart</a></button>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-xs-12 text-center">
+                        <div data-moltin-product="1281299837962159021" id="11"
+                        onload="createClientSideProduct()">
+                        </div>
+                        <img alt="" class="img-responsive" src=
+                        "http://placehold.it/400x300"> <button class=
+                        "btn btn-danger btn-s" onclick="addItemToCart()" type=
+                        "button"><a href="#">Add to Cart</a></button>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-xs-12 text-center">
+                        <div data-moltin-product="1281298286648492972" id="12"
+                        onload="createClientSideProduct()">
+                        </div>
+                        <img alt="" class="img-responsive" src=
+                        "http://placehold.it/400x300"> <button class=
+                        "btn btn-danger btn-s" onclick="addItemToCart()" type=
+                        "button"><a href="#">Add to Cart</a></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container content-section text-center" id="contact">
+            <div class="row">
+                <div class="col-lg-12 text center">
+                    <h1>
+                        Contact
+                    </h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 text center">
+                    <h3 class="text-muted">
+                        Social Media
+                    </h3>
+
+                    <ul class="list-inline social-buttons" id="sm">
+                        <li>
+                            <a href=
+                            "https://www.facebook.com/mastervapeusa/?fref=ts"><i class="fa fa-facebook fa-4x">
+                            </i></a>
                         </li>
-                        <li><a href="#">Terms of Use</a>
+
+                        <li>
+                            <a href=
+                            "https://twitter.com/mastervapeusa"><i class=
+                            "fa fa-twitter fa-4x"></i></a>
+                        </li>
+
+                        <li>
+                            <a href=
+                            "https://www.instagram.com/mastervapeusa/"><i class="fa fa-instagram fa-4x">
+                            </i></a>
+                        </li>
+
+                        <li>
+                            <a href=
+                            "https://open.spotify.com/artist/3ieXyLU9kMa3vehMYqQEWl">
+                            <i class="fa fa-google-plus fa-4x"></i></a>
                         </li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </footer>
 
+            <div class="row">
+                <div class="col-lg-12 text center">
+                    <h3 class="text-muted">
+                        Customer Service
+                    </h3>
 
+                    <ul class="list-inline social-buttons">
+                        <li>
+                            <a href="mailto:MaserVapeUSA@Gmail.com"><i class=
+                            "fa fa-envelope fa-4x"></i></a>
+                        </li>
+                    </ul>
 
-    <script src="js/jquery.js"></script>
+                    <div class="mailto:MaserVapeUSA@Gmail.com">
+                        <h5>
+                            <a href="#">MaserVapeUSA@Gmail.com</a>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="copyright">Copyright &copy;
+                        MasterVapeUSA2016</span>
+                    </div>
 
-    <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/cbpAnimatedHeader.js"></script>
+                    <div class="col-md-6">
+                        <ul class="list-inline quicklinks">
+                            <li>
+                                <a href="#">Privacy Policy</a>
+                            </li>
 
-    <!-- Moltin Product Plugins -->
-  <!--  <script src="https://js.moltin.com/v1/widgets" data-moltin-key="B9zkGefy2G02dkN0GNj3EemZNoVMJR3dDebwOtbGZr"></script> -->
+                            <li>
+                                <a href="#">Terms of Use</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="js/classie.js">
+        </script>
+         <script src="js/cbpAnimatedHeader.js">
+         </script>
+        <!-- <script src="https://js.moltin.com/v1/widgets" data-moltin-key="B9zkGefy2G02dkN0GNj3EemZNoVMJR3dDebwOtbGZr"></script> -->
+         <!-- Contact Form JavaScript -->
+        <script src="js/jqBootstrapValidation.js">
+        </script>
+        <script src="js/contact_me.js">
+        </script> <!-- Custom Theme JavaScript -->
+        <script src="js/agency.js">
+        </script>
+        <script src="js/examples.js">
+        </script>
+        <script type="text/javascript">
+        (function() {
+          //entry point.
+                  var moltin = new Moltin({publicId: 'B9zkGefy2G02dkN0GNj3EemZNoVMJR3dDebwOtbGZr'});
+                  moltin.Authenticate(function() {
+                    // Get cloudchaser  products
+                    moltin.Product.Search({category: 'featured', limit: 7}, function(response) {
+                        // Loop them
+                        for ( var k in response ) {
+                          // Assign product object
+                          response.reverse();
+                          product = response[k];
 
-    <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+                          // Assign item element
+                          $('#node .item').first().clone().appendTo('#node');
+                          var item = $('#node .item').last();
+                           //string together the product elements
+                          item.find('.list-group-image').attr('src', first(product.images).url.http).attr('alt', product.title);
+                          item.find('.list-group-item-heading').html(product.title);
+                          item.find('.list-group-item-text').html(product.description);
+                          item.find('.lead').html(product.price.value);
+                          item.find('.btn-success').on('click', function(e) {
+                            // get variation node and insert into cart
+                             moltin.Cart.Insert(product.id, 1, get_product_variation(response, product), function(response) {
+                              //insert the product instance into the cart on click.
+                              console.log(response.title+'and with status'+response.status);
+                               alert(product.title+' added to cart!'+'response:'+response);
+                             }, function(error) {
+                               console.log(product+'failed to add to cart. try again. '+response.title);
+                             });
+                        });
+                        }
+                        // Cleanup
+                        $('#node .item').first().remove();
+                    });
+                          //Creating cart id.
+                          m_cart_id = moltin.Cart.Identifier(null, null);
+                          //logging the response
+                          console.log('cartId successfully created. '+m_cart_id+','+moltin.Cart.Contents(function(response) {
+                     }, function(error) {
+                          console.log(error+'unknown error occured.');
+                     }));
+                        //add event listener on cart display page to invoke the call.
+                        //converting cart to an order
+                        moltin.Cart.Complete({
+                            gateway: 'dummy',
+                            customer: {
+                              first_name: 'default',
+                              last_name:  'default',
+                              email:      'default@default.com'
+                            },
+                            bill_to: {
+                              first_name: 'Jon',
+                              last_name:  'Doe',
+                              address_1:  '123 Sunny Street',
+                              address_2:  'Sunnycreek',
+                              city:       'Sunnyvale',
+                              county:     'California',
+                              country:    'US',
+                              postcode:   'CA94040',
+                              phone:      '6507123124'
+                            },
+                            ship_to: 'bill_to',
+                            shipping: 'free_shipping'
+                          }, function(order) {
+                              //bootstraping check out progress
+                              console.log(order);
+                          }, function(error) {
+                              // Something went wrong...
+                              if(error) {
+                              console.log("WARNING! Checkout is not setup or something went wrong. Please refresh the page, if you continue to have issues with checking out please contact us at mastervapeusa@gmail.com"+error);
+                              }
 
-    <!-- Custom Theme JavaScript -->
-    <script src="js/agency.js"></script>
+                          });
+                          function get_product_variation(response, status = false, product = null) {
+                            //  if it's not a variation why are we here
+                              if(response.status === false) {
+                                console.log(response.status+': is what bitch ass returned.');
+                              }
 
-    <script src="http://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
-    <!-- jQuery -->
+                              // if(pvars.length === 0) {
+                              //   return alert('no product variations were found. children have been NOT found!');
+                              // }
+                              // for (var k in pvars)
+                              // {
+                              //     console.log(pvars);
+                              // }
 
-</body>
+                              //console.log(product+','+response+','+pvars);
+                              //checking local vars to sew up annoying ass pvars.
+                              if(product === null){
+                                 notice('something went really wrong. refresh the page.');
 
+                                 var pvar = $(product).firstChild();
+                                 return -1;
+                              }
+                              //traverse the tree
+                              for (var k in product) {
+                                var pvar = moltin.Product.Get(product, function(response) {
+                                  console.log(response);
+                                }, function(error) {
+                                  console.log(error);
+                                });
+                                if(k === "child"){
+                                  return product.modifiers.variations;
+                                }
+                                if( typeof pvar[k] === "object" && pvar[k] !== null) {
+                                    get_product_variation(product_id);
+                                } else {
+                                  return k;
+                                }
+                              }
+                          }
+                    });
+                    })();
+        </script>
+      </body>
 </html>
