@@ -53,3 +53,21 @@ desc "run series of tests on the site and report logging(requires array of 'test
   task :runtest [:tests[:default, :live, :test, ]]
   sh "put test data here"
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+git
