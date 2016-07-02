@@ -17,18 +17,39 @@ Rake.application.options.trace_rules = true
 # def source_for_html(html_file)
 #   SOURCE_FILES.detect{|f| f.ext('') == html_file.ext('')}
 # end
+#
+# # # # # # # # # # # # TODO # # # # # # # # # # # # # # # # # # # # # # # #
+#   *write deploy build configurayion tasks
+#   *write moltin authentification configuration tasks
+#   *write stripe authentification configuration tasks
+#   *configure project directory children
+#               =>  - Andrew Owens
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# TODO
-#   write deploy build configurayion tasks
-#   write moltin authentification configuration tasks
-#   write stripe authentification configuration tasks
-# =>    - Andrew
+# BUILD ENTRY #
+namespace :main do
+  task :default => :setup
+end
+
+# marshalling task execution flows for { tests, build, and production depots} #
+task :default => :test_build
+end
+
+task :live =>
+        sh "build -o --verbose"
+end
+
 desc "deploy build according to build flags(requires is_public_request flag)"
-  task "deploy" do
+  task :build do |_ , args|
   sh "rsync -rzt site/build/ web@example.org:public"
 end
 
 desc "send request to server for authentication"
-  task "server_auth_public"
-  sh "authenticate to the (#) moltin endpoint(requires )"
+  task :server_auth_public_req, [:is_public_request] do |_ , args|
+     public_request = args.is_public_request or fail "You don't have permissions to do those types of test. ...aborting task."
+end
+
+desc "run series of tests on the site and report logging(requires array of 'tests', auth_key', and )"
+  task :runtest [:tests[:default, :live, :test, ]]
+  sh "put test data here"
 end

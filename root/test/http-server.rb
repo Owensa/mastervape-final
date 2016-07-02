@@ -4,5 +4,5 @@ require 'pp'
 Net::HTTP::Server.run(:port => 8080) do |request,stream|
   pp request
 
-  [200, {'Content-Type' => 'text/html'}, ['Hello World']]
+  [200, {'Content-Type' => 'text/html'}, [' Pushing moltin requests and responses']]
 end 0
